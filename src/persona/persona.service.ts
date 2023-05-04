@@ -6,17 +6,17 @@ export class PersonaService {
 
     private personas : PersonaEntity[] = [
         {
-            id:"1",
+            id: 1,
             nombre:"Melina",
             apellido:"Figueroa"
         },
         {
-            id:"2",
+            id:2,
             nombre:"Mercedes",
             apellido:"Coronel"
         },
         {
-            id:"3",
+            id:3,
             nombre:"Genaro",
             apellido:"Figueroa"
         }
