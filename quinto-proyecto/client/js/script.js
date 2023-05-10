@@ -1,6 +1,7 @@
 let btn_mostrar = document.getElementById("btnMostar");
 btn_mostrar.addEventListener( "click", mostrarDatos);
-console.log("porque no funciona :(")
+console.log("porque no funciona :(");
+
 async function mostrarDatos(){
     console.log("porque no funciona :( X2")
 
