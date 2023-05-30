@@ -1,30 +1,23 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { PersonaService } from './persona.service';
+import { Injectable } from '@nestjs/common';
 import { PersonaEntity } from './persona.entity/persona.entity';
 
-@Controller('persona')
-export class PersonaController {
+@Injectable()
+export class PersonaService {
+  private personas: PersonaEntity[] = []; // Un arreglo para almacenar las personas
 
-   constructor(private personaService:PersonaService){
-    }
+  getPersona(): string {
+    return 'Hola, soy una persona'; // Ejemplo de una función en el servicio
+  }
 
-    @Get('')
-    getPersona(): string{
-        return this.personaService.getPersona();
-    }
+  getPersonas(): PersonaEntity[] {
+    return this.personas; // Retorna el arreglo de personas
+  }
 
-    @Get('lista')
-    getPersonas():PersonaEntity{
-        return this.personaService.getPersonas();
-    }
+  getPersonaById(id: number): PersonaEntity {
+    return this.personas.find(persona => persona.id === id); // Retorna la persona con el ID específico
+  }
 
-    @Get(':id')
-    getPersonaId(@Param() params):PersonaEntity[]{
-        return this.personaService.getPersonas()[params.id];
-    }
-    @Post('crear')
-    crearPersona(@Body()body):string{
-        this.personaService.createPerson(body);
-    }
+  createPersona(persona: PersonaEntity): void {
+    this.personas.push(persona); // Agrega una nueva persona al arreglo
+  }
 }
-//rompio =(
